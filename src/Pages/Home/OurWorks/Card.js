@@ -3,10 +3,10 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import cardImg from "./pp.png";
+// import cardImg from "./pp.png";
 import { Box, IconButton, useTheme } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-const Cards = () => {
+const Cards = ({ image }) => {
   const theme = useTheme();
 
   return (
@@ -15,7 +15,7 @@ const Cards = () => {
         component="img"
         alt="green iguana"
         height="190"
-        image={cardImg}
+        image={image}
         style={{ borderRadius: "10px" }}
       />
       <CardContent

@@ -5,12 +5,13 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Cards from "./Card";
+import { cardData } from "./CardData";
 // import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const OurWorks = () => {
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: Number) => {
     setValue(newValue);
   };
   return (
@@ -83,9 +84,14 @@ const OurWorks = () => {
       </Box>
 
       {/* Card section  */}
-      <Box>
-        <Grid container></Grid>
-        <Cards></Cards>
+      <Box sx={{ mt: 5 }}>
+        <Grid container spacing={4} justifyContent="center">
+          {cardData[value].map((image) => (
+            <Grid item>
+              <Cards image={image}></Cards>
+            </Grid>
+          ))}
+        </Grid>
       </Box>
     </Box>
   );
