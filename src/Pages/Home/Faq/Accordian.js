@@ -1,13 +1,27 @@
+import React from "react";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Typography,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import React from "react";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
 
-const Accordian = () => {
+const ExpandAccordionIcon = () => {
+  return (
+    <div>
+      <div className="addExpand">
+        <AddIcon></AddIcon>
+      </div>
+      <div className="removeExpand">
+        <RemoveIcon></RemoveIcon>
+      </div>
+    </div>
+  );
+};
+
+const Accordian = ({ title, description }) => {
   return (
     <Accordion sx={{ p: 2 }}>
       <AccordionSummary
@@ -20,19 +34,28 @@ const Accordian = () => {
             "& p": {
               color: "primary.green",
             },
+            "& .addExpand": {
+              display: "none",
+            },
+            "& .removeExpand": {
+              display: "block",
+              "& svg": {
+                color: "primary.green",
+              },
+            },
+          },
+          "& .removeExpand": {
+            display: "none",
           },
         }}
-        expandIcon={<ExpandMoreIcon />}
+        expandIcon={<ExpandAccordionIcon />}
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography>Accordion 1</Typography>
+        <Typography>{title}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
-        </Typography>
+        <Typography>{description}</Typography>
       </AccordionDetails>
     </Accordion>
   );
